@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="urn:task3.namespace"
+           xmlns="urn:task3.namespace">
+<xs:element name="Papers">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="Paper" maxOccurs="unbounded" minOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Title" type="xs:string"/>
+                        <xs:element name="Volume" type="xs:integer"/>
+                        <xs:element name="Glossy" type="xs:boolean"/>
+                        <xs:element name="SubscriptionIndex" type="xs:boolean"/>
+                    </xs:sequence>
+                    <xs:attribute name="id" type="xs:integer" use="required"/>
+                    <xs:attribute name="type" type="xs:string" use="required"/>
+                    <xs:attribute name="monthly" type="xs:boolean" use="optional" default="true"/>
+                    <xs:attribute name="color" type="xs:boolean" use="optional" default="true"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+</xs:schema>

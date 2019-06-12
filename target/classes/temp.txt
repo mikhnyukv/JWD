@@ -1,0 +1,133 @@
+package by.epam.xmlparser.service;
+
+import by.epam.xmlparser.bean.Paper;
+import by.epam.xmlparser.bean.PaperType;
+import org.apache.log4j.Logger;
+
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamConstants;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class StAXPaperParser implements XMLParser<Paper> {
+    private static StAXPaperParser instance = new StAXPaperParser();
+    private static final Logger logger = Logger.getLogger(StAXPaperParser.class);
+
+    public static StAXPaperParser getInstance() {
+        return instance;
+    }
+
+    private XMLInputFactory inputFactory;
+
+    private List<Paper> cards = new ArrayList<>();
+
+    private StAXPaperParser() {
+        inputFactory = XMLInputFactory.newInstance();
+    }
+
+    @Override
+    public List<Paper> getData(String path) throws ServiceException {
+        cards.clear();
+        FileInputStream inputStream;
+        XMLStreamReader reader;
+        String name;
+        File file = new File(path);
+        try {
+            System.out.println("###" + file);
+            inputStream = new FileInputStream(file);
+            System.out.println(inputStream);
+            reader = inputFactory.createXMLStreamReader(inputStream);
+            while (reader.hasNext()) {
+                int type = reader.next();
+                if (type == XMLStreamReader.START_ELEMENT) {
+                    name = reader.getLocalName();
+                    if (name.equals("Paper")) {
+                        Paper paper = buildPaper(reader);
+                        logger.debug("Add " + paper.toString());
+                        cards.add(paper);
+                    }
+                }
+
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+            throw new ServiceException("File not found", e);
+        } catch (XMLStreamException e) {
+            throw new ServiceException("XML stream exception", e);
+        }
+        return cards;
+    }
+
+
+    private Paper buildPaper(XMLStreamReader reader) throws XMLStreamException, ServiceException {
+        Paper paper = new Paper();
+        paper.setId(Integer.parseInt(reader.getAttributeValue(null, "id")));
+        String typeString = reader.getAttributeValue(null, "type");
+        if (typeString.equals(PaperType.MAGAZINE.getPaperType())) {
+            paper.setType(PaperType.MAGAZINE);
+        } else if (typeString.equals(PaperType.NEWSPAPER.getPaperType())) {
+            paper.setType(PaperType.NEWSPAPER);
+        } else if (typeString.equals(PaperType.BOOKLET.getPaperType())) {
+            paper.setType(PaperType.BOOKLET);
+        }
+        paper.setMonthly(Boolean.parseBoolean(reader.getAttributeValue(null, "monthly")));
+        paper.setColor(Boolean.parseBoolean(reader.getAttributeValue(null, "color")));
+
+        String name;
+
+        while (reader.hasNext()) {
+            int type = reader.next();
+            switch (type) {
+                case XMLStreamConstants.START_ELEMENT:
+                    name = reader.getLocalName();
+                    switch (name) {
+                        case "Title":
+                            paper.setTitle(getXMLText(reader));
+                            break;
+                        case "Volume":
+                            paper.setVolume(Integer.parseInt(getXMLText(reader)));
+                            break;
+                        case "Glossy":
+                            paper.setGlossy(Boolean.parseBoolean(getXMLText(reader)));
+                            break;
+                        case "SubscriptionIndex":
+                            paper.setSubscriptionIndex(Boolean.parseBoolean(getXMLText(reader)));
+                            break;
+                    }
+                    break;
+                case XMLStreamConstants.END_ELEMENT:
+                    name = reader.getLocalName();
+                    if (name.equals("Paper")) {
+                        return paper;
+                    }
+                    break;
+            }
+        }
+        throw new ServiceException("Service exception");
+    }
+
+    private String getXMLText(XMLStreamReader reader) throws XMLStreamException {
+        String text = null;
+        if (reader.hasNext()) {
+            reader.next();
+            text = reader.getText();
+        }
+        logger.debug("Add data to paper" + text);
+        return text;
+    }
+
+    public static void main(String[] args) throws ServiceException {
+        String path = "papers.xml";
+        StAXPaperParser stAXPaperParser = new StAXPaperParser();
+        List<Paper> paperList = stAXPaperParser.getData(path);
+        for (Paper paper : paperList) {
+            System.out.println(paper.getTitle());
+        }
+    }
+
+}

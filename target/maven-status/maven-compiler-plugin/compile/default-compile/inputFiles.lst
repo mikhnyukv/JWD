@@ -1,0 +1,11 @@
+D:\JavaTraining\Java WEB\task3\src\main\java\by\epam\xmlparser\bean\PaperType.java
+D:\JavaTraining\Java WEB\task3\src\main\java\by\epam\xmlparser\service\StAXPaperParser.java
+D:\JavaTraining\Java WEB\task3\src\main\java\by\epam\xmlparser\service\XMLParser.java
+D:\JavaTraining\Java WEB\task3\src\main\java\by\epam\xmlparser\service\DOMParserService.java
+D:\JavaTraining\Java WEB\task3\src\main\java\by\epam\xmlparser\service\DirectorService.java
+D:\JavaTraining\Java WEB\task3\src\main\java\by\epam\xmlparser\bean\Paper.java
+D:\JavaTraining\Java WEB\task3\src\main\java\by\epam\xmlparser\service\impl\DirectorServiceImpl.java
+D:\JavaTraining\Java WEB\task3\src\main\java\by\epam\xmlparser\service\BaseBuilderService.java
+D:\JavaTraining\Java WEB\task3\src\main\java\by\epam\xmlparser\service\impl\DOMBuilderServiceImpl.java
+D:\JavaTraining\Java WEB\task3\src\main\java\by\epam\xmlparser\service\SAXPaperHandler.java
+D:\JavaTraining\Java WEB\task3\src\main\java\by\epam\xmlparser\service\ServiceException.java

@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<Papers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="urn:task3.namespace"
+        xsi:schemaLocation="papersSchema.xsd">
+    <Paper id="1" type="magazine" monthly="true" color="true">
+        <Title>Vogue</Title>
+        <Volume>35</Volume>
+        <Glossy>true</Glossy>
+        <SubscriptionIndex>true</SubscriptionIndex>
+    </Paper>
+    <Paper id="2" type="newspaper" monthly="true" color="true">
+        <Title>Forbs</Title>
+        <Volume>45</Volume>
+        <Glossy>true</Glossy>
+        <SubscriptionIndex>true</SubscriptionIndex>
+    </Paper>
+    <Paper id="3" type="booklet" monthly="true" color="true">
+        <Title>CarDrift</Title>
+        <Volume>75</Volume>
+        <Glossy>true</Glossy>
+        <SubscriptionIndex>true</SubscriptionIndex>
+    </Paper>
+    <Paper id="4" type="newspaper" monthly="true" color="true">
+        <Title>Garden</Title>
+        <Volume>200</Volume>
+        <Glossy>true</Glossy>
+        <SubscriptionIndex>true</SubscriptionIndex>
+    </Paper>
+    <Paper id="5" type="newspaper" monthly="true" color="true">
+        <Title>Village</Title>
+        <Volume>20</Volume>
+        <Glossy>true</Glossy>
+        <SubscriptionIndex>true</SubscriptionIndex>
+    </Paper>
+    <Paper id="6" type="newspaper" monthly="true" color="true">
+        <Title>Garden</Title>
+        <Volume>200</Volume>
+        <Glossy>true</Glossy>
+        <SubscriptionIndex>true</SubscriptionIndex>
+    </Paper>
+    <Paper id="7" type="newspaper" monthly="true" color="true">
+        <Title>YourCity</Title>
+        <Volume>200</Volume>
+        <Glossy>true</Glossy>
+        <SubscriptionIndex>true</SubscriptionIndex>
+    </Paper>
+    <Paper id="8" type="newspaper" monthly="true" color="true">
+        <Title>Garden</Title>
+        <Volume>200</Volume>
+        <Glossy>true</Glossy>
+        <SubscriptionIndex>true</SubscriptionIndex>
+    </Paper>
+    <Paper id="9" type="newspaper" monthly="true" color="true">
+        <Title>Garden</Title>
+        <Volume>200</Volume>
+        <Glossy>true</Glossy>
+        <SubscriptionIndex>true</SubscriptionIndex>
+    </Paper>
+    <Paper id="10" type="newspaper" monthly="true" color="true">
+        <Title>Garden</Title>
+        <Volume>200</Volume>
+        <Glossy>true</Glossy>
+        <SubscriptionIndex>true</SubscriptionIndex>
+    </Paper>
+    <Paper id="11" type="newspaper" monthly="true" color="true">
+        <Title>Garden</Title>
+        <Volume>200</Volume>
+        <Glossy>true</Glossy>
+        <SubscriptionIndex>true</SubscriptionIndex>
+    </Paper>
+    <Paper id="12" type="newspaper" monthly="true" color="true">
+        <Title>Garden</Title>
+        <Volume>200</Volume>
+        <Glossy>true</Glossy>
+        <SubscriptionIndex>true</SubscriptionIndex>
+    </Paper>
+    <Paper id="13" type="newspaper" monthly="true" color="true">
+        <Title>Garden</Title>
+        <Volume>200</Volume>
+        <Glossy>true</Glossy>
+        <SubscriptionIndex>true</SubscriptionIndex>
+    </Paper>
+    <Paper id="14" type="newspaper" monthly="true" color="true">
+        <Title>Garden</Title>
+        <Volume>200</Volume>
+        <Glossy>true</Glossy>
+        <SubscriptionIndex>true</SubscriptionIndex>
+    </Paper>
+    <Paper id="15" type="newspaper" monthly="true" color="true">
+        <Title>Garden</Title>
+        <Volume>200</Volume>
+        <Glossy>true</Glossy>
+        <SubscriptionIndex>true</SubscriptionIndex>
+    </Paper>
+    <Paper id="16" type="newspaper" monthly="true" color="true">
+        <Title>Garden</Title>
+        <Volume>200</Volume>
+        <Glossy>true</Glossy>
+        <SubscriptionIndex>true</SubscriptionIndex>
+    </Paper>
+</Papers>
